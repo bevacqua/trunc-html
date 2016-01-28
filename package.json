@@ -1,0 +1,27 @@
+{
+  "name": "trunc-html",
+  "description": "truncate html by text length",
+  "version": "1.0.0",
+  "homepage": "https://github.com/bevacqua/trunc-html",
+  "author": {
+    "name": "Nicolás Bevacqua",
+    "email": "hello@ponyfoo.com",
+    "url": "https://ponyfoo.com"
+  },
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/bevacqua/trunc-html.git"
+  },
+  "scripts": {
+    "test": "ava"
+  },
+  "devDependencies": {
+    "ava": "0.11.0"
+  },
+  "dependencies": {
+    "assignment": "2.2.0",
+    "insane": "2.5.0",
+    "trunc-text": "1.0.0"
+  }
+}
