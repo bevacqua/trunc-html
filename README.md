@@ -1,5 +1,7 @@
 # trunc-html
 
+[![Build Status](https://travis-ci.org/bevacqua/trunc-html.svg?branch=master)](https://travis-ci.org/bevacqua/trunc-html)
+
 > truncate html by text length
 
 # install
