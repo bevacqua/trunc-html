@@ -24,7 +24,7 @@ Returns the result of truncating the provided `html`. A plain-text version is pr
 
 ```js
 var html = 'the force is <strong>with this one</strong>. some more rubbish';
-trunc(html, { limit: 30 });
+trunc(html, 30);
 // <-
 //    { html: 'the force is <strong>with this one</strong>. …',
 //      text: 'the force is with this one. …' }
