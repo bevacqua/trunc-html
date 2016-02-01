@@ -42,6 +42,10 @@ If you'd like to supress certain HTML tags from being output you can provide an 
 
 Options passed to [`insane`][1]. Note that these options are overridden by the options provided by `trunc-html`, so you can't use `filter` and `transformText`, which `trunc-html` reserves for itself.
 
+# related
+
+- [`trunc-text`](https://github.com/bevacqua/trunc-text)
+
 # license
 
 MIT
