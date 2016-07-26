@@ -33,4 +33,8 @@ test(t => {
     html: 'some <img alt="&#x1F389;" src="https://twemoji.maxcdn.com/2/72x72/1f389.png"/> sort of tada <img alt="&#x1F389;" src="https://twemoji.maxcdn.com/2/72x72/1f389.png"/>',
     text: 'some 🎉 sort of tada 🎉'
   });
+    t.same(trunc('some sort of tada <img class="tj-emoji" alt="&#x1F389;" src="https://twemoji.maxcdn.com/2/72x72/1f389.png"/> then <img a="a" alt="bar" src="https://ponyfoo.com/foo.png" /> scoop', 30, { imageAltText: true, sanitizer: { filter: token => token.tag !== 'img' || token.attrs.class === 'tj-emoji' } }), {
+      html: 'some sort of tada <img alt="&#x1F389;" src="https://twemoji.maxcdn.com/2/72x72/1f389.png"/> then  scoop',
+      text: 'some sort of tada 🎉 then  scoop'
+    });
 });
