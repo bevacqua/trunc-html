@@ -36,11 +36,15 @@ Maximum amount of text characters allowed. When the `limit` is reached, the algo
 
 ## `options.ignoreTags`
 
-If you'd like to supress certain HTML tags from being output you can provide an array of tags to be excluded, e.g `['img']`.
+If you'd like to supress certain HTML tags from being output you can provide an array of tags to be excluded, set `ignoreTags` to something like `['strong']`.
+
+## `options.imageAltText`
+
+If you'd like to use the `alt` attribute for the text portion of the result, instead of dropping images entirely in text flavor, set `imageAltText` to `true`.
 
 ## `options.sanitizer`
 
-Options passed to [`insane`][1]. Note that these options are overridden by the options provided by `trunc-html`, so you can't use `filter` and `transformText`, which `trunc-html` reserves for itself.
+Options passed to [`insane`][1]. Note that these options are overridden by the options provided by `trunc-html`, so you can't use `transformText`, which `trunc-html` reserves for itself.
 
 # related
 

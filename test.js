@@ -22,3 +22,15 @@ test(t => {
     text: 'the force is . some more …'
   });
 });
+
+
+test(t => {
+  t.same(trunc('some sort of tada <img class="tj-emoji" alt="&#x1F389;" src="https://twemoji.maxcdn.com/2/72x72/1f389.png"/>', 30, { imageAltText: true }), {
+    html: 'some sort of tada <img alt="&#x1F389;" src="https://twemoji.maxcdn.com/2/72x72/1f389.png"/>',
+    text: 'some sort of tada 🎉'
+  });
+  t.same(trunc('some <img class="tj-emoji" alt="&#x1F389;" src="https://twemoji.maxcdn.com/2/72x72/1f389.png"/> sort of tada <img class="tj-emoji" alt="&#x1F389;" src="https://twemoji.maxcdn.com/2/72x72/1f389.png"/>', 30, { imageAltText: true }), {
+    html: 'some <img alt="&#x1F389;" src="https://twemoji.maxcdn.com/2/72x72/1f389.png"/> sort of tada <img alt="&#x1F389;" src="https://twemoji.maxcdn.com/2/72x72/1f389.png"/>',
+    text: 'some 🎉 sort of tada 🎉'
+  });
+});

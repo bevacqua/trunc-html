@@ -14,18 +14,30 @@ function truncHtml (input, limit, options) {
   var o = options || {};
   var remainder = Number(limit);
   var ignoreTags = (o.ignoreTags || []).reduce(intoHashMap, Object.create(null));
+  var altBuffer = '';
   var plain = '';
   var insaneDefaults = {
     filter: filter,
     transformText: transformText
   };
-  var html = insane(input, assign(o.sanitizer || {}, insaneDefaults));
-  return { html: html, text: plain };
+  var sanitizer = o.sanitizer || {};
+  var opts = assign({}, sanitizer, insaneDefaults);
+  var html = insane(input, opts);
+  return { html: html, text: plain + altBuffer };
   function filter (token) {
     if (token.tag in ignoreTags) {
       return false;
     }
-    return remainder > 0;
+    if (remainder <= 0) {
+      return false;
+    }
+    if (sanitizer.filter && !sanitizer.filter(token)) {
+      return false;
+    }
+    if (o.imageAltText && token.tag === 'img') {
+      altBuffer += token.attrs.alt;
+    }
+    return true;
   }
   function transformText (text) {
     if (remainder <= 0) {
@@ -37,7 +49,8 @@ function truncHtml (input, limit, options) {
     } else {
       remainder -= truncated.length;
     }
-    plain += truncated;
+    plain += altBuffer + truncated;
+    altBuffer = '';
     return truncated;
   }
 }
