@@ -1,7 +1,7 @@
 {
   "name": "trunc-html",
   "description": "truncate html by text length",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "homepage": "https://github.com/bevacqua/trunc-html",
   "author": {
     "name": "Nicolás Bevacqua",
@@ -16,12 +16,12 @@
   "scripts": {
     "test": "ava"
   },
-  "devDependencies": {
-    "ava": "0.11.0"
-  },
   "dependencies": {
     "assignment": "2.2.0",
-    "insane": "2.5.0",
+    "insane": "2.6.1",
     "trunc-text": "1.0.1"
+  },
+  "devDependencies": {
+    "ava": "0.11.0"
   }
 }
